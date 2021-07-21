@@ -6,7 +6,7 @@ import Form from './components/Form';
 
 
 const initialFormValues = {
-  name: '',
+  memberName: '',
   email: '',
   role: '',
 }
@@ -18,7 +18,7 @@ const dummyTeam = [
 ]
 
 export default function App() {
-const [teams, setTeams] = useState([dummyTeam])
+const [teams, setTeams] = useState(dummyTeam)
 
 const [formValues, setFormValues] = useState(initialFormValues)
 
@@ -28,11 +28,15 @@ const updateForm = (inputName, inputValue) => {
 
 const submitForm = () => {
   const newTeamMember = {
-    name: formValues.memberName,
+    memberName: formValues.memberName,
     email: formValues.email,
     role: formValues.role,
   }
+  setTeams([...teams, newTeamMember])
 }
+
+
+
 //   if (!newTeamMember.memberName || !newTeamMember.email || !newTeamMember.role) return
 
 //   axios.post('fakeapi.com', newTeamMember)
@@ -53,7 +57,9 @@ return (
       {
       teams.map(team => {
         return (
+          
           <Team key={team.id} details={team} />
+          
         )
       })
     }

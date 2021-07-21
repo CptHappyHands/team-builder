@@ -9,7 +9,7 @@ if (!details) {
 
 return (
     <div className="team-container">
-        <h2>{details.name}</h2><br></br>
+        <h2>{details.memberName}</h2>
         <p>Email: {details.email}</p>
         <p>Role: {details.role}</p>
     </div>
